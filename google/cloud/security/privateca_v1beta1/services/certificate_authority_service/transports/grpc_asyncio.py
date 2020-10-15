@@ -372,6 +372,9 @@ class CertificateAuthorityServiceGrpcAsyncIOTransport(
 
         Update a
         [Certificate][google.cloud.security.privateca.v1beta1.Certificate].
+        Currently, the only field you can update is the
+        [labels][google.cloud.security.privateca.v1beta1.Certificate.labels]
+        field.
 
         Returns:
             Callable[[~.UpdateCertificateRequest],
@@ -718,41 +721,6 @@ class CertificateAuthorityServiceGrpcAsyncIOTransport(
         return self._stubs["update_certificate_authority"]
 
     @property
-    def create_certificate_revocation_list(
-        self,
-    ) -> Callable[
-        [service.CreateCertificateRevocationListRequest],
-        Awaitable[operations.Operation],
-    ]:
-        r"""Return a callable for the create certificate revocation
-        list method over gRPC.
-
-        Create a new
-        [CertificateRevocationList][google.cloud.security.privateca.v1beta1.CertificateRevocationList]
-        in a given Project, Location for a particular
-        [CertificateAuthority][google.cloud.security.privateca.v1beta1.CertificateAuthority].
-
-        Returns:
-            Callable[[~.CreateCertificateRevocationListRequest],
-                    Awaitable[~.Operation]]:
-                A function that, when called, will call the underlying RPC
-                on the server.
-        """
-        # Generate a "stub function" on-the-fly which will actually make
-        # the request.
-        # gRPC handles serialization and deserialization, so we just need
-        # to pass in the functions for each.
-        if "create_certificate_revocation_list" not in self._stubs:
-            self._stubs[
-                "create_certificate_revocation_list"
-            ] = self.grpc_channel.unary_unary(
-                "/google.cloud.security.privateca.v1beta1.CertificateAuthorityService/CreateCertificateRevocationList",
-                request_serializer=service.CreateCertificateRevocationListRequest.serialize,
-                response_deserializer=operations.Operation.FromString,
-            )
-        return self._stubs["create_certificate_revocation_list"]
-
-    @property
     def get_certificate_revocation_list(
         self,
     ) -> Callable[
@@ -852,65 +820,6 @@ class CertificateAuthorityServiceGrpcAsyncIOTransport(
         return self._stubs["update_certificate_revocation_list"]
 
     @property
-    def create_reusable_config(
-        self,
-    ) -> Callable[
-        [service.CreateReusableConfigRequest], Awaitable[operations.Operation]
-    ]:
-        r"""Return a callable for the create reusable config method over gRPC.
-
-        Create a new
-        [ReusableConfig][google.cloud.security.privateca.v1beta1.ReusableConfig]
-        in a given Project and Location.
-
-        Returns:
-            Callable[[~.CreateReusableConfigRequest],
-                    Awaitable[~.Operation]]:
-                A function that, when called, will call the underlying RPC
-                on the server.
-        """
-        # Generate a "stub function" on-the-fly which will actually make
-        # the request.
-        # gRPC handles serialization and deserialization, so we just need
-        # to pass in the functions for each.
-        if "create_reusable_config" not in self._stubs:
-            self._stubs["create_reusable_config"] = self.grpc_channel.unary_unary(
-                "/google.cloud.security.privateca.v1beta1.CertificateAuthorityService/CreateReusableConfig",
-                request_serializer=service.CreateReusableConfigRequest.serialize,
-                response_deserializer=operations.Operation.FromString,
-            )
-        return self._stubs["create_reusable_config"]
-
-    @property
-    def delete_reusable_config(
-        self,
-    ) -> Callable[
-        [service.DeleteReusableConfigRequest], Awaitable[operations.Operation]
-    ]:
-        r"""Return a callable for the delete reusable config method over gRPC.
-
-        DeleteReusableConfig deletes a
-        [ReusableConfig][google.cloud.security.privateca.v1beta1.ReusableConfig].
-
-        Returns:
-            Callable[[~.DeleteReusableConfigRequest],
-                    Awaitable[~.Operation]]:
-                A function that, when called, will call the underlying RPC
-                on the server.
-        """
-        # Generate a "stub function" on-the-fly which will actually make
-        # the request.
-        # gRPC handles serialization and deserialization, so we just need
-        # to pass in the functions for each.
-        if "delete_reusable_config" not in self._stubs:
-            self._stubs["delete_reusable_config"] = self.grpc_channel.unary_unary(
-                "/google.cloud.security.privateca.v1beta1.CertificateAuthorityService/DeleteReusableConfig",
-                request_serializer=service.DeleteReusableConfigRequest.serialize,
-                response_deserializer=operations.Operation.FromString,
-            )
-        return self._stubs["delete_reusable_config"]
-
-    @property
     def get_reusable_config(
         self,
     ) -> Callable[
@@ -968,35 +877,6 @@ class CertificateAuthorityServiceGrpcAsyncIOTransport(
                 response_deserializer=service.ListReusableConfigsResponse.deserialize,
             )
         return self._stubs["list_reusable_configs"]
-
-    @property
-    def update_reusable_config(
-        self,
-    ) -> Callable[
-        [service.UpdateReusableConfigRequest], Awaitable[operations.Operation]
-    ]:
-        r"""Return a callable for the update reusable config method over gRPC.
-
-        Update a
-        [ReusableConfig][google.cloud.security.privateca.v1beta1.ReusableConfig].
-
-        Returns:
-            Callable[[~.UpdateReusableConfigRequest],
-                    Awaitable[~.Operation]]:
-                A function that, when called, will call the underlying RPC
-                on the server.
-        """
-        # Generate a "stub function" on-the-fly which will actually make
-        # the request.
-        # gRPC handles serialization and deserialization, so we just need
-        # to pass in the functions for each.
-        if "update_reusable_config" not in self._stubs:
-            self._stubs["update_reusable_config"] = self.grpc_channel.unary_unary(
-                "/google.cloud.security.privateca.v1beta1.CertificateAuthorityService/UpdateReusableConfig",
-                request_serializer=service.UpdateReusableConfigRequest.serialize,
-                response_deserializer=operations.Operation.FromString,
-            )
-        return self._stubs["update_reusable_config"]
 
 
 __all__ = ("CertificateAuthorityServiceGrpcAsyncIOTransport",)
